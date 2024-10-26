@@ -11,7 +11,7 @@ const clerkWebhooks = async (req, res) => {
         const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
 
         await whook.verify(JSON.stringify(req.body), {
-            "svix-id": re.headers["svix-id"],
+            "svix-id": req.headers["svix-id"],
             "svix-timestamp": req.headers["svix-timestamp"],
             "svix-signature": req.headers["svix-signature"]
         })
@@ -57,7 +57,7 @@ const clerkWebhooks = async (req, res) => {
 
     } catch (error) {
         console.log(error.message)
-        res.JSON({ success: false, message: error.message })
+        res.json({ success: false, message: error.message })
 
     }
 
