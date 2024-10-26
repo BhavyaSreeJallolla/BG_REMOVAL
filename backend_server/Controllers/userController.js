@@ -50,8 +50,6 @@ const clerkWebhooks = async (req, res) => {
                 break;
             }
 
-
-
             default:
                 break;
 
